@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { Items } from "@/types/item";
 import { ItemDetailsClient } from "@/components/item-details-client";
+import { apiUrl } from "@/lib/api";
 
 async function getItem(id: string): Promise<Items> {
-  const res = await fetch(`http://localhost:8000/api/work-item/${id}`, {
+  const res = await fetch(apiUrl(`/api/work-item/${id}`), {
     cache: "no-store",
   });
 

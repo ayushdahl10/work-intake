@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { Items } from "@/types/item";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/lib/api";
 
 type ItemDetailsClientProps = {
   item: Items;
@@ -18,8 +19,8 @@ export function ItemDetailsClient({ item }: ItemDetailsClientProps) {
 
     const endpoint =
       action === "complete"
-        ? `http://localhost:8000/api/work-item/${currentItem.uid}/complete`
-        : `http://localhost:8000/api/work-item/${currentItem.uid}/trigger`;
+        ? apiUrl(`/api/work-item/${currentItem.uid}/complete`)
+        : apiUrl(`/api/work-item/${currentItem.uid}/trigger`);
 
     const res = await fetch(endpoint, {
       method: action === "complete" ? "PATCH" : "PATCH",

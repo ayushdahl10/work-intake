@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { Items } from "@/types/item";
+import { apiUrl } from "@/lib/api";
 
 type StatusFilter = "ALL" | Items["status"];
 
@@ -38,7 +39,7 @@ export function TableList() {
     let isActive = true;
 
     async function fetchAllItems() {
-      const res = await fetch("http://localhost:8000/api/work-item", {
+      const res = await fetch(apiUrl("/api/work-item"), {
         cache: "no-store",
       });
 
@@ -70,7 +71,9 @@ export function TableList() {
     let isActive = true;
 
     async function fetchFilteredItems() {
-      const url = `http://localhost:8000/api/work-item?status=${encodeURIComponent(selectedStatus)}`;
+      const url = apiUrl(
+        `/api/work-item?status=${encodeURIComponent(selectedStatus)}`
+      );
 
       const res = await fetch(url, {
         cache: "no-store",
