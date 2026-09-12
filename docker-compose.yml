@@ -17,7 +17,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   frontend:
-    container_name: appx
+    container_name: app-ui
     build:
       context: ./frontend/workapp
       dockerfile: Dockerfile
