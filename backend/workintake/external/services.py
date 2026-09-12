@@ -67,7 +67,6 @@ def _finalize_work(work_item_id, analysis_results):
 
 # print can be changed to logger for keeping track of the analysis
 def analysis_in_background(work_item_id):
-    print(f"Running LLM analysis for work item {work_item_id} in background...")
     wt_instance = _claim_work(work_item_id)
 
     if not wt_instance:

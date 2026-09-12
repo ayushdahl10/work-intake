@@ -13,7 +13,7 @@ from external.models import Status, WorkItem
 from external.serializers import CreateWorkItemSerializer, ListWorkItemSerializer
 from external.services import analysis_in_background
 
-worker = ThreadPoolExecutor(max_workers=5)
+worker = ThreadPoolExecutor(max_workers=2)
 
 
 @extend_schema(
