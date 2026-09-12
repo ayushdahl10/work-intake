@@ -1,0 +1,33 @@
+services:
+  backend:
+    container_name: app
+    build:
+      context: ./backend/workintake
+      dockerfile: Dockerfile
+    command: python  manage.py runserver 0.0.0.0:8000
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/workintake:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_URL=http://host.docker.internal:11434/api/generate
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    container_name: appx
+    build:
+      context: ./frontend/workapp
+      dockerfile: Dockerfile
+    command: pnpm run dev
+    volumes:
+      - ./frontend/workapp:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+  
+volumes:
+  redis_data:
+    driver: local

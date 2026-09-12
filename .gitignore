@@ -1,0 +1,46 @@
+# Operating-system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Environment files and local secrets
+.env
+.env.*
+!.env.sample
+*.pem
+
+# Python / Django backend
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+db.sqlite3
+
+# Node / pnpm frontend
+node_modules
+.pnpm-store
+.pnp
+.pnp.*
+.yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Next.js / frontend build output
+.next/
+out/
+build/
+.vercel/
+*.tsbuildinfo
+
+# Nested Git metadata: this workspace is one root repository
+frontend/workapp/.git/
