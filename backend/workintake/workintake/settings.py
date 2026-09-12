@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-szohf2v8$ey2v==&f*(r5!53kn%5#*xxl^e!sacsl5z@=rf$dy
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = bool(os.environ.get("CORS_ORIGIN_ALLOW_ALL", True))
 # Application definition
 
 INSTALLED_APPS = [

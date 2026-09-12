@@ -73,7 +73,7 @@ def get_work_item(request, **kwargs):
         serializer = ListWorkItemSerializer(work_items)
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
-        work_items = WorkItem.objects.filter(is_active=True)
+        work_items = WorkItem.objects.filter(is_active=True).order_by("-created_at")
         work_items = WorkItemFilter(request.GET, queryset=work_items)
         serializer = ListWorkItemSerializer(work_items.qs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
