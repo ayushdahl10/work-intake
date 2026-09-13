@@ -103,7 +103,7 @@ export function ItemDetailsClient({ item }: ItemDetailsClientProps) {
       )}
 
       <div className="py-2">
-        {currentItem.status === "FAILED" && (
+        {currentItem.status === "FAILED" || currentItem.status === "RECEIVED" && ( 
           <Button
             type="button"
             onClick={() => void handleAction("re-analyze")}
