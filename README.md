@@ -7,3 +7,7 @@ Run Project
 3. docker compose up
 4. docker exec -it app bash -> python manage.py migrate #important
 5. docker exec -it app bash -> python manage.py createsuperuser #optional
+
+Run Test
+
+* COMMAND: python manage.py test
